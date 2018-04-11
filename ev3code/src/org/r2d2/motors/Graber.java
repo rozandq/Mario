@@ -30,7 +30,7 @@ public class Graber extends TImedMotor{
 	 * @param open vrai pour l'ouverture
 	 */
 	public void startCalibrate(boolean open){
-		graber.setSpeed(R2D2Constants.GRAB_CALIBRATE_SPEED);
+		graber.setSpeed(R2D2Constants.GRAB_CALIBRATE_SPEED*2);
 		if(open){
 			graber.forward();
 			startCalibrateOpen = System.currentTimeMillis();
@@ -62,7 +62,7 @@ public class Graber extends TImedMotor{
 	 */
 	public void close(){
 		if(!isRunin){
-			graber.setSpeed(R2D2Constants.GRAB_RUNNING_SPEED);
+			graber.setSpeed(R2D2Constants.GRAB_RUNNING_SPEED/5);
 			graber.backward();
 			isRunin = true;
 			lastAskedRunning = System.currentTimeMillis();
@@ -75,7 +75,7 @@ public class Graber extends TImedMotor{
 	 */
 	public void open(){
 		if(!isRunin){
-			graber.setSpeed(R2D2Constants.GRAB_RUNNING_SPEED);
+			graber.setSpeed(R2D2Constants.GRAB_RUNNING_SPEED/5);
 			graber.forward();
 			isRunin = true;
 			lastAskedRunning = System.currentTimeMillis();
@@ -103,11 +103,18 @@ public class Graber extends TImedMotor{
 
 	@Override
 	public void runFor(int millis, boolean forward) {
+		float first = System.currentTimeMillis();
+		graber.setSpeed(800);
+		isRunin = true;
 		if(forward){
-			open();
+			this.graber.rotate(400, false);
+			this.graber.rotate(400, true);
 		}else{
-			close();
+			this.graber.rotate((-1)*800, true);
 		}
+		while(this.graber.isMoving());
+		//while(System.currentTimeMillis()-first < movementTimeOpen);
+		//graber.stop();
 	}
 
 	@Override

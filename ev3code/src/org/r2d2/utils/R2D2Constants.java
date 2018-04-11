@@ -21,6 +21,11 @@ public class R2D2Constants {
 	public static final float WHEEL_DIAMETER        = 56;
 	public static final float DISTANCE_TO_CENTER    = 62.525f;
 	
+	//
+	public static final float Y_MAX    = 62.525f;
+	public static final float X_MAX    = 62.525f;
+
+	
 	/*
 	 * Runing parameters, may be changed
 	 */

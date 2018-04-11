@@ -58,6 +58,9 @@ public class Propulsion extends TImedMotor implements MoveListener{
 
 	@Override
 	public void run(boolean forward) {
+		//331 mm/s
+		pilot.setLinearSpeed(331);
+
 		if(forward){
 			pilot.forward();
 		}else{
@@ -189,6 +192,13 @@ public class Propulsion extends TImedMotor implements MoveListener{
 		run(forward);
 	}
 
+	public void runFor(int millis, boolean forward, float speed) {
+		pilot.setLinearSpeed(speed);
+		lastAskRunning = new Date().getTime();
+		time           = millis;
+		run(forward);
+	}
+	
 	@Override
 	public boolean isTimeRunElapsed() {
 		boolean timeElapsed = false;
