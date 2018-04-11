@@ -73,4 +73,4 @@ esac
 EV3_CP_PC=$(my_build_cp "$EV3_HOME/lib")
 
 				
-"$JAVA" $EV3_FORCE32 "-DEV3.home=$EV3_HOME" "-DCOMMAND_NAME=$EV3_COMMAND" -classpath "$EV3_CP_PC" lejos.ev3.tools.EV3Control  "$@"
+"$JAVA" EV3_FORCE32 "-DEV3.home=$EV3_HOME" "-DCOMMAND_NAME=$EV3_COMMAND" -classpath "$EV3_CP_PC" lejos.ev3.tools.EV3Control  "$@"

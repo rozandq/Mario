@@ -38,5 +38,5 @@
 		(succ P9 P8) 
 		(roboton START) 
 		(succ START P1)) 
-	(:goal (finish))
+	(:goal (AND (finish) :())
 )

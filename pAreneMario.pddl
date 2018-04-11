@@ -1,0 +1,1 @@
+(define (problem FIND-PALETS) (:domain ARENE) (:objects P0 P1 P2 P3 START - sommet ) (:INIT (notingame START) (ingame P0) (ingame P1) (ingame P2) (ingame P3) (succ START P1) (succ P1 P3) (succ P3 P0) (succ P0 P2) (roboton START)) (:goal (and (finish) (roboton START))))

@@ -20,9 +20,6 @@ import org.r2d2.utils.R2D2Constants;
 import org.r2d2.vue.InputHandler;
 import org.r2d2.vue.Screen;
 
-import fr.uga.pddl4j.util.Plan;
-import fr.uga.pddl4j.util.SequentialPlan;
-
 import lejos.hardware.Button;
 import lejos.robotics.Color;
 
